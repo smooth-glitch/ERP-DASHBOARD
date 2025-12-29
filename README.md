@@ -67,7 +67,12 @@ Using VS Code:
 
 ## Project structure
 
-
+├─ index.html # UI layout (login + app shell + views)
+​
+├─ styles.css # Theme + layout + component styling
+​
+└─ app.js # Demo auth, state, rendering, charts, events
+​
 ---
 
 ## How “Axpert links” work (demo)
@@ -89,3 +94,61 @@ If running inside an Axpert container, it attempts `window.parent.createPopup(..
 
 ---
 
+
+### 2️⃣ Run locally (no build needed)
+Option A: Open `index.html` directly in browser.  
+
+Option B (recommended): Use VS Code Live Server  
+- Install the “Live Server” extension  
+- Right-click `index.html` → **Open with Live Server**
+
+---
+
+## 🌍 Deployment
+
+### GitHub Pages (fastest)
+1. Push this repo to GitHub.
+2. Go to **Settings → Pages**
+3. Select branch: `main` and folder: `/root`
+4. Your site will be live at:
+   `https://YOUR_GITHUB_USERNAME.github.io/ERP-DASHBOARD/`
+
+### Netlify (drag & drop)
+1. Go to Netlify → **Add new site**
+2. Drag-drop the project folder (must contain `index.html`)
+3. Netlify gives a live `*.netlify.app` URL
+
+---
+
+## 📜 License
+
+- **Code**: MIT License — see [`LICENSE`](LICENSE).  
+- **Branding / non-code assets**: All Rights Reserved — see [`NOTICE`](NOTICE).
+
+---
+
+## 👨‍💻 Author
+
+**YOUR NAME**  
+🌐 LinkedIn: YOUR_LINKEDIN_URL
+
+---
+
+## 🧠 Learnings & Highlights
+
+- Building a clean dashboard layout using Bootstrap utilities + custom CSS.
+- Managing UI state (theme, motion, filters, sidebar) with LocalStorage.
+- Rendering responsive charts and data-driven UI with Vanilla JS.
+
+---
+
+## 🏁 Future Enhancements
+
+- 🔐 Real authentication (JWT / OAuth) + role-based access
+- 📡 Real API integration (Axpert endpoints / backend)
+- 📅 Date range picker + advanced filters
+- 📄 PDF export for reports
+
+## Badges
+
+![Status](https://img.shields.io/badge/status-active-success?style=for-the-badgehttps://img.shields.io/badge/made%20with-vanilla%20js-yellow?stylehttps://img.shields.io/github/license/USERNAME/REPO?style=for-the-badge
