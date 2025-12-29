@@ -87,6 +87,7 @@ Using VS Code:
 
 <img src="structure.png" />
 ​
+
 ---
 
 ## How “Axpert links” work
