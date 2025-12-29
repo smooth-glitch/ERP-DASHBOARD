@@ -1,0 +1,1081 @@
+/* =========
+   Theme base
+========= */
+
+/* Force the HTML hidden attribute to always win (even against Bootstrap utilities) */
+[hidden] { display: none !important; }
+
+:root {
+  --erp-bg: #0b0f17;
+  --erp-bg2: #0e1420;
+  --erp-text: #e9eef7;
+  --erp-muted: rgba(233, 238, 247, .72);
+  --erp-card: rgba(255, 255, 255, .06);
+  --erp-border: rgba(255, 255, 255, .12);
+  --erp-accent: #7c5cff;
+  --erp-accent2: #30d4ff;
+  --erp-good: #39d98a;
+  --erp-warn: #ffb020;
+  --erp-bad: #ff5c7a;
+  --erp-ring: 0 0 0 3px rgba(124, 92, 255, .28);
+}
+
+/* Use the theme attribute your JS actually sets */
+html[data-bs-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-bs-theme="light"] {
+  color-scheme: light;
+}
+
+/* Make selects readable in dark mode */
+html[data-bs-theme="dark"] .form-select,
+html[data-bs-theme="dark"] .form-control {
+  background-color: rgba(255, 255, 255, .06) !important;
+  border-color: rgba(255, 255, 255, .16) !important;
+  color: var(--erp-text) !important;
+}
+
+/* Most Chromium browsers will respect this for the opened list */
+html[data-bs-theme="dark"] .form-select option {
+  background: #0e1420;
+  color: #e9eef7;
+}
+
+/* Bootstrap dropdown menus (if you use any) */
+html[data-bs-theme="dark"] .dropdown-menu {
+  background-color: #0e1420 !important;
+  border-color: rgba(255, 255, 255, .12) !important;
+}
+
+html[data-bs-theme="dark"] .dropdown-item {
+  color: #e9eef7 !important;
+}
+
+html[data-bs-theme="dark"] .dropdown-item:hover,
+html[data-bs-theme="dark"] .dropdown-item:focus {
+  background-color: rgba(255, 255, 255, .08) !important;
+  color: #ffffff !important;
+}
+
+html[data-bs-theme="light"] {
+  --erp-bg: #f6f8fc;
+  --erp-bg2: #eef2fb;
+  --erp-text: #111827;
+  --erp-muted: rgba(17, 24, 39, .65);
+  --erp-card: rgba(255, 255, 255, .92);
+  --erp-border: rgba(17, 24, 39, .12);
+  --erp-ring: 0 0 0 3px rgba(124, 92, 255, .20);
+}
+
+html[data-bs-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-bs-theme="light"] {
+  color-scheme: light;
+}
+
+body {
+  color: var(--erp-text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(124, 92, 255, .25), transparent 55%),
+    radial-gradient(900px 540px at 90% 0%, rgba(48, 212, 255, .18), transparent 55%),
+    var(--erp-bg);
+}
+
+/* =========
+   A11y helper
+========= */
+
+.sr-only-focusable {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.sr-only-focusable:focus {
+  left: 14px;
+  top: 12px;
+  width: auto;
+  height: auto;
+  padding: 10px 12px;
+  background: var(--erp-bg2);
+  color: var(--erp-text);
+  border: 1px solid var(--erp-border);
+  border-radius: 12px;
+  z-index: 10000;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--erp-ring);
+  border-radius: 12px;
+}
+
+/* =========
+   Bootstrap tuning (dark)
+========= */
+
+html[data-bs-theme="dark"] .card,
+html[data-bs-theme="dark"] .navbar,
+html[data-bs-theme="dark"] .dropdown-menu,
+html[data-bs-theme="dark"] .modal-content {
+  background-color: rgba(255, 255, 255, .03) !important;
+  border-color: var(--erp-border) !important;
+  color: var(--erp-text) !important;
+}
+
+html[data-bs-theme="dark"] .table {
+  --bs-table-color: var(--erp-text);
+  --bs-table-bg: transparent;
+  --bs-table-border-color: rgba(255, 255, 255, .10);
+  --bs-table-hover-bg: rgba(255, 255, 255, .04);
+}
+
+html[data-bs-theme="dark"] .form-control,
+html[data-bs-theme="dark"] .form-select {
+  background-color: rgba(255, 255, 255, .05);
+  border-color: rgba(255, 255, 255, .14);
+  color: var(--erp-text);
+}
+
+html[data-bs-theme="dark"] .form-control::placeholder {
+  color: rgba(233, 238, 247, .55);
+}
+
+/* =========
+   Topbar / search
+========= */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  background: rgba(10, 14, 22, .78);
+}
+
+html[data-bs-theme="light"] .topbar {
+  background: rgba(246, 248, 252, .82);
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(124, 92, 255, .95), rgba(48, 212, 255, .75));
+  color: #fff;
+}
+
+.brand-title {
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.brand-subtitle {
+  font-size: 12px;
+  color: var(--erp-muted);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--erp-border);
+  background: rgba(255, 255, 255, .06);
+}
+
+.search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--erp-text);
+}
+
+.kbd {
+  font-size: 12px;
+  padding: 3px 7px;
+  border-radius: 8px;
+  border: 1px solid var(--erp-border);
+  color: var(--erp-muted);
+  background: rgba(255, 255, 255, .06);
+}
+
+/* =========
+   Buttons used by JS (IDs stay the same)
+========= */
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  border: 1px solid var(--erp-border);
+  background: rgba(255, 255, 255, .06);
+  color: var(--erp-text);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.icon-lines {
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+  position: relative;
+  opacity: .9;
+}
+
+.icon-lines::before,
+.icon-lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.icon-lines::before {
+  top: -6px;
+  width: 12px;
+}
+
+.icon-lines::after {
+  top: 6px;
+  width: 14px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 16px;
+  border: 1px solid var(--erp-border);
+  background: rgba(255, 255, 255, .06);
+  color: var(--erp-text);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.avatar-badge {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  right: 8px;
+  top: 8px;
+  background: var(--erp-good);
+  border: 2px solid rgba(0, 0, 0, .22);
+}
+
+.dot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  margin-top: -14px;
+  margin-left: 14px;
+  background: var(--erp-warn);
+}
+
+/* =========
+   Sidebar layout (keeps your existing JS behavior)
+========= */
+
+.shell {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: calc(100vh - 70px);
+}
+
+.sidebar {
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 70px);
+  background: rgba(255, 255, 255, .02);
+  padding: 12px;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--erp-text);
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, .06);
+  border-color: rgba(255, 255, 255, .06);
+}
+
+.nav-item.active {
+  background: linear-gradient(135deg, rgba(124, 92, 255, .22), rgba(48, 212, 255, .12));
+  border-color: rgba(124, 92, 255, .26);
+}
+
+.nav-ic {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, .06);
+}
+
+/* JS toggles */
+body.sidebar-collapsed .shell {
+  grid-template-columns: 84px 1fr;
+}
+
+body.sidebar-collapsed .nav-item span:not(.nav-ic) {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: min(92vw, 320px);
+    transform: translateX(-110%);
+    transition: transform 260ms ease;
+    z-index: 55;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .45);
+  }
+
+  body.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* =========
+   Views (JS uses .view.active)
+========= */
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+/* =========
+   KPI + compatibility elements used by app.js rendering
+========= */
+
+.kpi-label {
+  color: var(--erp-muted);
+  font-size: 12px;
+}
+
+.kpi-value {
+  font-size: 22px;
+  font-weight: 820;
+  letter-spacing: .2px;
+}
+
+.pill {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--erp-border);
+  background: rgba(255, 255, 255, .06);
+  color: var(--erp-muted);
+  height: fit-content;
+}
+
+.pill.up {
+  border-color: rgba(57, 217, 138, .35);
+  color: rgba(57, 217, 138, .95);
+  background: rgba(57, 217, 138, .10);
+}
+
+.pill.warn {
+  border-color: rgba(255, 176, 32, .35);
+  color: rgba(255, 176, 32, .95);
+  background: rgba(255, 176, 32, .10);
+}
+
+.pill.neutral {
+  border-color: rgba(48, 212, 255, .30);
+  color: rgba(48, 212, 255, .95);
+  background: rgba(48, 212, 255, .10);
+}
+
+.chart-wrap {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  background: rgba(0, 0, 0, .12);
+  padding: 10px;
+}
+
+html[data-bs-theme="light"] .chart-wrap {
+  background: rgba(255, 255, 255, .70);
+}
+
+.table-wrap {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  overflow: hidden;
+  background: rgba(255, 255, 255, .02);
+}
+
+/* app.js renders these */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* app.js renders these (do NOT use .row because Bootstrap uses it for grid) */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.list-row {
+  border: 1px solid rgba(255, 255, 255, .08);
+  background: rgba(255, 255, 255, .05);
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.list-row-left {
+  min-width: 0;
+  /* prevents overflow */
+}
+
+.list-row-title {
+  font-weight: 720;
+  font-size: 13px;
+}
+
+.list-row-sub {
+  color: var(--erp-muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.list-row-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.badge.pending {
+  border-color: rgba(255, 176, 32, .35);
+  color: rgba(255, 176, 32, .95);
+  background: rgba(255, 176, 32, .10);
+}
+
+.badge.approved {
+  border-color: rgba(57, 217, 138, .35);
+  color: rgba(57, 217, 138, .95);
+  background: rgba(57, 217, 138, .10);
+}
+
+.badge.draft {
+  border-color: rgba(48, 212, 255, .30);
+  color: rgba(48, 212, 255, .95);
+  background: rgba(48, 212, 255, .10);
+}
+
+.ghost-btn,
+.menu-btn,
+.action,
+.link {
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .05);
+  color: var(--erp-text);
+  padding: 8px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.link {
+  border: 0;
+  background: transparent;
+  color: rgba(48, 212, 255, .95);
+  padding: 0;
+  font-weight: 650;
+}
+
+.tag-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .05);
+  color: var(--erp-text);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* Dropdown body styling to match your old popover layout */
+.popover-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.popover-body {
+  padding: 10px 12px;
+}
+
+.popover-title {
+  font-weight: 800;
+}
+
+.sep {
+  height: 1px;
+  background: rgba(255, 255, 255, .10);
+  margin: 12px 0;
+}
+
+.mini-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, .06);
+  font-weight: 800;
+}
+
+.mini-name {
+  font-weight: 800;
+}
+
+.mini-sub {
+  font-size: 12px;
+  color: var(--erp-muted);
+}
+
+/* Settings */
+.settings-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.settings-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .06);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+
+.settings-name {
+  font-weight: 900;
+}
+
+.settings-sub {
+  color: var(--erp-muted);
+  font-size: 12px;
+}
+
+.settings-hero-right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.settings-chip {
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .04);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--erp-muted);
+}
+
+.seg {
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.seg-btn {
+  border: 1px solid rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .05);
+  color: var(--erp-text);
+  padding: 8px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.seg-btn.active {
+  border-color: rgba(124, 92, 255, .55);
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, .18);
+}
+
+.metric-big {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.metric-sub {
+  margin-top: 6px;
+}
+
+/* Scroll top */
+.scrolltop {
+  position: fixed;
+  left: 14px;
+  bottom: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.scrolltop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Prevent grid children from forcing horizontal overflow */
+.main {
+  min-width: 0;
+}
+
+/* Ensure canvases fill card width cleanly */
+.chart-wrap canvas {
+  display: block;
+  width: 100% !important;
+}
+
+/* Sidebar scroll if content exceeds height */
+.sidebar {
+  overflow-y: auto;
+}
+
+/* Search bar prevents overflow in navbar */
+.search {
+  min-width: 0;
+}
+
+.search input {
+  min-width: 0;
+}
+
+
+/* ===== Bootstrap dropdown readability (dark mode) ===== */
+html[data-bs-theme="dark"] {
+  --bs-dropdown-bg: rgba(10, 14, 22, .95);
+  --bs-dropdown-border-color: rgba(255, 255, 255, .12);
+
+  --bs-dropdown-link-color: rgba(233, 238, 247, .92);
+  --bs-dropdown-link-hover-color: #fff;
+  --bs-dropdown-link-hover-bg: rgba(255, 255, 255, .08);
+
+  --bs-dropdown-link-active-color: #fff;
+  --bs-dropdown-link-active-bg: rgba(124, 92, 255, .35);
+
+  --bs-dropdown-header-color: rgba(233, 238, 247, .70);
+}
+
+html[data-bs-theme="dark"] .dropdown-menu {
+  background: var(--bs-dropdown-bg) !important;
+  border-color: var(--bs-dropdown-border-color) !important;
+}
+
+html[data-bs-theme="dark"] .dropdown-item {
+  color: var(--bs-dropdown-link-color) !important;
+}
+
+html[data-bs-theme="dark"] .dropdown-item:hover,
+html[data-bs-theme="dark"] .dropdown-item:focus {
+  color: var(--bs-dropdown-link-hover-color) !important;
+  background: var(--bs-dropdown-link-hover-bg) !important;
+}
+
+html[data-bs-theme="dark"] .dropdown-item.active,
+html[data-bs-theme="dark"] .dropdown-item:active {
+  color: var(--bs-dropdown-link-active-color) !important;
+  background: var(--bs-dropdown-link-active-bg) !important;
+}
+
+html[data-bs-theme="dark"] .dropdown-divider {
+  border-top-color: rgba(255, 255, 255, .10) !important;
+}
+
+/* ===== Reports tiles ===== */
+.report-tile {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .05);
+  color: var(--erp-text);
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.report-tile:hover {
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(255, 255, 255, .14);
+}
+
+.report-ic {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  background: linear-gradient(135deg, rgba(124, 92, 255, .22), rgba(48, 212, 255, .12));
+  border: 1px solid rgba(124, 92, 255, .20);
+}
+
+.report-ic i {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.report-meta {
+  min-width: 0;
+  display: grid;
+}
+
+.report-title {
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.report-sub {
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--erp-muted);
+}
+
+/* Light mode contrast */
+html[data-bs-theme="light"] .report-tile {
+  background: rgba(255, 255, 255, .85);
+  border-color: rgba(17, 24, 39, .12);
+}
+
+html[data-bs-theme="light"] .report-tile:hover {
+  background: rgba(255, 255, 255, .95);
+}
+
+/* ===== Sales section polish ===== */
+.section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.section-sub {
+  line-height: 1.25;
+}
+
+/* Small icon chip used in Sales side cards */
+.mini-ic {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .06);
+  color: rgba(48, 212, 255, .95);
+}
+
+/* Sales cards feel slightly “premium” */
+.sales-card {
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .03);
+}
+
+html[data-bs-theme="light"] .sales-card {
+  border: 1px solid rgba(17, 24, 39, .10);
+  background: rgba(255, 255, 255, .92);
+}
+
+/* Chart panel: subtle depth + consistent padding */
+.sales-chart {
+  background:
+    radial-gradient(900px 220px at 20% 0%, rgba(124, 92, 255, .14), transparent 55%),
+    radial-gradient(700px 220px at 80% 0%, rgba(48, 212, 255, .10), transparent 55%),
+    rgba(0, 0, 0, .10);
+}
+
+html[data-bs-theme="light"] .sales-chart {
+  background:
+    radial-gradient(900px 220px at 20% 0%, rgba(124, 92, 255, .10), transparent 55%),
+    radial-gradient(700px 220px at 80% 0%, rgba(48, 212, 255, .08), transparent 55%),
+    rgba(255, 255, 255, .70);
+}
+
+.chart-wrap canvas {
+  display: block;
+  width: 100% !important;
+}
+
+/* Actions grid (prevents “cluttered buttons” look) */
+.actions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 576px) {
+  .actions-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .actions-grid .action:last-child {
+    grid-column: 1 / -1;
+    /* Ledger Master full width */
+  }
+}
+
+/* Make action buttons look like “real” UI buttons */
+.actions-grid .action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .12);
+}
+
+.actions-grid .action:hover {
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(255, 255, 255, .18);
+}
+
+html[data-bs-theme="light"] .actions-grid .action {
+  background: rgba(17, 24, 39, .04);
+  border-color: rgba(17, 24, 39, .12);
+}
+
+/* ===== Purchase section polish ===== */
+.purchase-card {
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .03);
+}
+
+html[data-bs-theme="light"] .purchase-card {
+  border: 1px solid rgba(17, 24, 39, .10);
+  background: rgba(255, 255, 255, .92);
+}
+
+/* Variant icon tint for Purchase */
+.purchase-ic {
+  color: rgba(57, 217, 138, .95);
+  border-color: rgba(57, 217, 138, .18);
+  background: rgba(57, 217, 138, .08);
+}
+
+/* Chart surfaces (subtle but “pro”) */
+.purchase-chart {
+  background:
+    radial-gradient(900px 240px at 20% 0%, rgba(48, 212, 255, .14), transparent 55%),
+    rgba(0, 0, 0, .10);
+}
+
+.purchase-chart-alt {
+  background:
+    radial-gradient(900px 240px at 20% 0%, rgba(57, 217, 138, .14), transparent 55%),
+    rgba(0, 0, 0, .10);
+}
+
+html[data-bs-theme="light"] .purchase-chart,
+html[data-bs-theme="light"] .purchase-chart-alt {
+  background:
+    radial-gradient(900px 240px at 20% 0%, rgba(124, 92, 255, .08), transparent 55%),
+    rgba(255, 255, 255, .70);
+}
+
+/* ===== Assets section polish ===== */
+.assets-card {
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .03);
+}
+
+html[data-bs-theme="light"] .assets-card {
+  border: 1px solid rgba(17, 24, 39, .10);
+  background: rgba(255, 255, 255, .92);
+}
+
+/* Icon tint for Assets */
+.assets-ic {
+  color: rgba(124, 92, 255, .98);
+  border-color: rgba(124, 92, 255, .20);
+  background: rgba(124, 92, 255, .10);
+}
+
+/* Chart surface */
+.assets-chart {
+  background:
+    radial-gradient(900px 240px at 20% 0%, rgba(124, 92, 255, .16), transparent 55%),
+    radial-gradient(700px 240px at 80% 0%, rgba(48, 212, 255, .10), transparent 55%),
+    rgba(0, 0, 0, .10);
+}
+
+html[data-bs-theme="light"] .assets-chart {
+  background:
+    radial-gradient(900px 240px at 20% 0%, rgba(124, 92, 255, .10), transparent 55%),
+    radial-gradient(700px 240px at 80% 0%, rgba(48, 212, 255, .08), transparent 55%),
+    rgba(255, 255, 255, .70);
+}
+
+/* ===== Settings polish (uses data-bs-theme; JS sets this) ===== */
+
+/* Settings cards: slightly premium surface */
+.settings-card {
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .03);
+}
+
+html[data-bs-theme="light"] .settings-card {
+  border: 1px solid rgba(17, 24, 39, .10);
+  background: rgba(255, 255, 255, .92);
+}
+
+/* Settings hero: better separation */
+.settings-hero {
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .03);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+html[data-bs-theme="light"] .settings-hero {
+  border-color: rgba(17, 24, 39, .10);
+  background: rgba(255, 255, 255, .92);
+}
+
+.settings-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Icon chip tint for Settings */
+.settings-ic {
+  color: rgba(48, 212, 255, .95);
+  border-color: rgba(48, 212, 255, .18);
+  background: rgba(48, 212, 255, .08);
+}
+
+/* Segmented buttons: “real” pill toggles */
+.seg {
+  gap: 10px;
+}
+
+.seg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 12px;
+  min-height: 42px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .05);
+  color: var(--erp-text);
+}
+
+.seg-btn:hover {
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(255, 255, 255, .18);
+}
+
+.seg-btn.active {
+  border-color: rgba(124, 92, 255, .55);
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, .18);
+  background: linear-gradient(135deg, rgba(124, 92, 255, .22), rgba(48, 212, 255, .10));
+}
+
+html[data-bs-theme="light"] .seg-btn {
+  background: rgba(17, 24, 39, .04);
+  border-color: rgba(17, 24, 39, .12);
+}
+
+html[data-bs-theme="light"] .seg-btn:hover {
+  background: rgba(17, 24, 39, .06);
+}
+
+/* Settings actions spacing */
+.settings-actions {
+  display: grid;
+  gap: 8px;
+}
