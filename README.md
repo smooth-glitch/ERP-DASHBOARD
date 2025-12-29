@@ -85,11 +85,7 @@ Using VS Code:
 
 ## Project structure
 
-├─ index.html # UI layout (login + app shell + views)
-​
-├─ styles.css # Theme + layout + component styling
-​
-└─ app.js # Demo auth, state, rendering, charts, events
+<img src="structure.png" />
 ​
 ---
 
