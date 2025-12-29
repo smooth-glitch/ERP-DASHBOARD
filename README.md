@@ -166,7 +166,3 @@ Option B (recommended): Use VS Code Live Server
 - 📡 Real API integration (Axpert endpoints / backend)
 - 📅 Date range picker + advanced filters
 - 📄 PDF export for reports
-
-## Badges
-
-![Status](https://img.shields.io/badge/status-active-success?style=for-the-badgehttps://img.shields.io/badge/made%20with-vanilla%20js-yellow?stylehttps://img.shields.io/github/license/USERNAME/REPO?style=for-the-badge
